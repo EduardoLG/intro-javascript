@@ -7,19 +7,21 @@ function esTriangulo(a, b, c) {
       return false;
     }
     return a + b > c && a + c > b && b + c > a;
-  }
-  
-  function ejecutarTriangulo() {
+}
 
+function ejecutarTriangulo() {
     let lado1 = parseInt(prompt("Ingresa la longitud del primer lado:"));
     let lado2 = parseInt(prompt("Ingresa la longitud del segundo lado:"));
     let lado3 = parseInt(prompt("Ingresa la longitud del tercer lado:"));
 
-    const resultado = document.getElementById('resultado');
+    if (isNaN(lado1) || isNaN(lado2) || isNaN(lado3)) {
+        console.log("Por favor, ingresa solo números válidos.");
+        return;
+    }
 
     if (esTriangulo(lado1, lado2, lado3)) {
-      resultado.textContent = `Sí, los lados ${lado1}, ${lado2} y ${lado3} pueden formar un triángulo.`;
+      console.log(`Sí, los lados ${lado1}, ${lado2} y ${lado3} pueden formar un triángulo.`);
     } else {
-      resultado.textContent = `No, los lados ${lado1}, ${lado2} y ${lado3} no pueden formar un triángulo.`;
+      console.log(`No, los lados ${lado1}, ${lado2} y ${lado3} no pueden formar un triángulo.`);
     }
-  }
+}
